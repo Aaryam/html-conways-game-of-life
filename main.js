@@ -1,5 +1,5 @@
 const main = document.getElementById('main');
-const bound = 59;
+const bound = 19;
 
 var cellProperties = [];
 var isTriggered = false
@@ -41,7 +41,7 @@ function createBoard(bound) {
                 cell.id = mid - (cell.id - (x) * bound) + "," + ((bound - 1) / 2 - x);
 
                 if (cell.id == '0,0') {
-                    cell.style.backgroundColor = 'red';
+                    cell.style.backgroundColor = 'gray';
                 }
 
                 let cellProperty = {
@@ -50,11 +50,12 @@ function createBoard(bound) {
                     isDead: true,
                 };
 
+                cellProperties.push(cellProperty);
+
                 if (Math.random() > 1) {
                     cell.classList.add('active');
+                    getCellProperties(cell.id).isDead = false;
                 }
-
-                cellProperties.push(cellProperty);
             }
         }
     }
@@ -172,6 +173,6 @@ function tick() {
 
 setInterval(function () {
     tick();
-}, 200)
+}, 100)
 
 createBoard(bound);

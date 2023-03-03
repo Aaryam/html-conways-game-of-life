@@ -6,9 +6,20 @@ body {
 .main {
     margin: 0;
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
     height: 100vh;
     width: 100vw;
+}
+
+.body {
+    flex: 3;
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+}
+
+.column {
+    flex: 1;
 }
 
 .row {
@@ -19,18 +30,21 @@ body {
 
 .cell {
     flex: 1;
-    background-color: white;
-    border: solid 0.1px black;
+    background-color: rgb(243, 243, 243);
+    border: solid 1px white;
+    transition: transform 0.05s ease-in-out, background 0.05s ease-in-out;
+    border-radius: 5px;
 }
 
 .cell:hover {
     cursor: pointer;
     background-color: rgb(234, 234, 234);
+    transform: scale(120%);
 }
 
 .active {
     background-color: rgb(111, 202, 202) !important;
-    border: solid 1px rgb(111, 202, 202);
+    border: solid 0.1px rgb(111, 202, 202);
 }
 
 .test {
